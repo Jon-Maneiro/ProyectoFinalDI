@@ -1,18 +1,22 @@
 Programa tipo agenda
 Pantallas:
-	-Bienvenida
+	-Bienvenida-First Fragment
 		-Boton navegar Listado/Creacion Citas
 		-(?)Boton Personas
 		-Menú Navegar Listado/Creacion Citas
-	-Listado Citas(Menú ordenar?)
+	-Listado Citas(Menú ordenar?)-Third Fragment
 		-Recycler View
+			-Espacio para cada campo. String con las personas...
+			-Botoncete para ir a Actualizar/Borrar
 			-onclick=Ir a actualizacion/borrado
 			-(?)onclick= Ir a lista personas
-	-Crear/Actualizar Cita
+		-Menú ordenar por x parametros.
+		-NO BUSQUEDA ESPECIFICA
+	-Crear/Actualizar Cita-Second Fragment
 		-Inputs para todos los campos
-	-Personas?
+	-Personas?-Fourth Fragment(?¿?¿?¿?¿')
 		-Listado personas por cita?(Otro Recycler View)
-
+	
 BBDD: 
 	Citas:
 		id(autoincremental):INT

@@ -3,8 +3,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.agenda.MainActivity">
     <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
+        android:id="@+id/action_main"
+        android:orderInCategory="101"
+        android:title="Volver al Menú"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/action_crear"
+        android:orderInCategory="102"
+        android:title="A Crear" />
+    <item
+        android:id="@+id/action_listado"
+        android:orderInCategory="103"
+        android:title="A Listado" />
+    <item
+        android:id="@+id/action_fechaasc"
+        android:orderInCategory="104"
+        android:title="Ordenar Ascendente" />
+    <item
+        android:id="@+id/action_fechadesc"
+        android:orderInCategory="105"
+        android:title="Ordenar Descendente" />
 </menu>
