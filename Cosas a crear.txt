@@ -1,0 +1,27 @@
+Programa tipo agenda
+Pantallas:
+	-Bienvenida
+		-Boton navegar Listado/Creacion Citas
+		-(?)Boton Personas
+		-Menú Navegar Listado/Creacion Citas
+	-Listado Citas(Menú ordenar?)
+		-Recycler View
+			-onclick=Ir a actualizacion/borrado
+			-(?)onclick= Ir a lista personas
+	-Crear/Actualizar Cita
+		-Inputs para todos los campos
+	-Personas?
+		-Listado personas por cita?(Otro Recycler View)
+
+BBDD: 
+	Citas:
+		id(autoincremental):INT
+		Nombre: String
+		Fecha y Hora: Date (o String si veo que me muero)
+		Personas:String!!!!
+!!! SI al final trato a las personas como otro item más, hacer una
+relación 1 a n
+
+	(?)Personas:
+		Nombre:String
+		Telefono:Int
