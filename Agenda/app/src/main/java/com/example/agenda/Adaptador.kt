@@ -38,4 +38,15 @@ class Adaptador(citas:List<Citas>): RecyclerView.Adapter<Adaptador.ViewHolder>()
         val v = LayoutInflater.from(parent.context).inflate(R.layout.plantilla_cita, parent, false)
         return ViewHolder(v)
     }
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.tvNombre.text = citas[position].nombre
+        holder.tvFecha.text = citas[position].fecha.toString()
+        holder.tvHora.text = citas[position].hora.toString()
+        holder.tvPersonas.text = citas[position].personas
+
+    }
+
+    override fun getItemCount(): Int {
+        return citas.size
+    }
 }

@@ -9,9 +9,15 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
+import androidx.activity.viewModels
 import com.example.agenda.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+
+    val database by lazy {BaseDatos.getDatabase((this))}
+    val miRepositorio by lazy {Repositorio(database.miDao())}
+    val miViewModel:CitaViewModel by viewModels { CitaViewModel.peliViewModelFactory(miRepositorio) }
+    var citas:List<Citas> = listOf()
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
@@ -28,9 +34,8 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
 
-        binding.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+        this.miViewModel.allCitas.observe(this){ Cita ->
+            Cita?.let { citas = it }
         }
     }
 
