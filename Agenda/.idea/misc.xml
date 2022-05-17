@@ -3,6 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Proyectos/DAM/AS/ProyectoFinalDI/ProyectoFinalDI/Agenda/app/src/main/res/layout/activity_main.xml" value="0.14814814814814814" />
+        <entry key="..\:/Proyectos/DAM/AS/ProyectoFinalDI/ProyectoFinalDI/Agenda/app/src/main/res/layout/content_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/Proyectos/DAM/AS/ProyectoFinalDI/ProyectoFinalDI/Agenda/app/src/main/res/layout/fragment_first.xml" value="0.33" />
+        <entry key="..\:/Proyectos/DAM/AS/ProyectoFinalDI/ProyectoFinalDI/Agenda/app/src/main/res/layout/fragment_second.xml" value="0.25" />
+        <entry key="..\:/Proyectos/DAM/AS/ProyectoFinalDI/ProyectoFinalDI/Agenda/app/src/main/res/layout/fragment_third.xml" value="0.25" />
+        <entry key="..\:/Proyectos/DAM/AS/ProyectoFinalDI/ProyectoFinalDI/Agenda/app/src/main/res/layout/plantilla_cita.xml" value="0.36666666666666664" />
+        <entry key="..\:/Proyectos/DAM/AS/ProyectoFinalDI/ProyectoFinalDI/Agenda/app/src/main/res/menu/menu_main.xml" value="0.25" />
         <entry key="..\:/Users/jonma/ProyectoFinalDI/Agenda/app/src/main/res/layout/activity_main.xml" value="0.1675929884566054" />
         <entry key="..\:/Users/jonma/ProyectoFinalDI/Agenda/app/src/main/res/layout/content_main.xml" value="0.1675929884566054" />
         <entry key="..\:/Users/jonma/ProyectoFinalDI/Agenda/app/src/main/res/layout/fragment_first.xml" value="0.2" />

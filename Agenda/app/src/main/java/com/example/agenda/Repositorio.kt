@@ -14,6 +14,9 @@ class Repositorio(val miDAO: CitaDAO) {
     fun buscarPorId(id:Int): Flow<Citas> {
         return miDAO.BuscarPorId(id)
     }
+    fun obtenerCitaProxima(): Flow<Citas>{
+        return miDAO.ObtenerCitaProxima()
+    }
     @Suppress("RedundantSuspendModifier")
     @WorkerThread
     suspend fun borrar(miPeli: Citas){

@@ -15,12 +15,4 @@
         android:id="@+id/action_listado"
         android:orderInCategory="103"
         android:title="A Listado" />
-    <item
-        android:id="@+id/action_fechaasc"
-        android:orderInCategory="104"
-        android:title="Ordenar Ascendente" />
-    <item
-        android:id="@+id/action_fechadesc"
-        android:orderInCategory="105"
-        android:title="Ordenar Descendente" />
 </menu>

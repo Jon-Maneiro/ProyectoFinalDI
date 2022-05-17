@@ -1,9 +1,11 @@
 package com.example.agenda
 
 import java.sql.Time
+import java.time.LocalDate
+import java.time.LocalTime
 import java.util.*
 
-class Citas(nombre:String, fecha:Date, hora:Time, personas:String ) {
+class Citas(nombre:String, fecha: LocalDate, hora: LocalTime, personas:String ) {
     val nombre = nombre;
     val fecha = fecha;
     val hora = hora;

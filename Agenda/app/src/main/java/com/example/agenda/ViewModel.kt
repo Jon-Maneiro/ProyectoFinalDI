@@ -6,21 +6,21 @@ import java.lang.IllegalArgumentException
 
 class CitaViewModel(private val miRepositorio:Repositorio):ViewModel() {
         val allCitas: LiveData<List<Citas>> = miRepositorio.listaCitas.asLiveData()
-        lateinit var miPelicula: LiveData<Citas>
+        lateinit var miCita: LiveData<Citas>
 
-        fun Insertar(miPelicula : Citas) = viewModelScope.launch{
-            miRepositorio.insertar(miPelicula)
+        fun Insertar(miCita : Citas) = viewModelScope.launch{
+            miRepositorio.insertar(miCita)
         }
 
         fun BuscarPorId(id:Int) = viewModelScope.launch{
-            miPelicula = miRepositorio.buscarPorId(id).asLiveData()
+            miCita = miRepositorio.buscarPorId(id).asLiveData()
         }
 
-        fun Borrar(miPelicula : Citas) = viewModelScope.launch{
-            miRepositorio.borrar(miPelicula)
+        fun Borrar(miCita : Citas) = viewModelScope.launch{
+            miRepositorio.borrar(miCita)
         }
-        fun Actualizar(miPelicula : Citas) = viewModelScope.launch{
-            miRepositorio.actualizar(miPelicula)
+        fun Actualizar(miCita : Citas) = viewModelScope.launch{
+            miRepositorio.actualizar(miCita)
         }
 
         class peliViewModelFactory(private val repository:Repositorio) : ViewModelProvider.Factory{

@@ -5,20 +5,22 @@ import androidx.annotation.NonNull
 import androidx.room.*
 import kotlinx.coroutines.flow.Flow
 import java.sql.Time
+import java.time.LocalDate
+import java.time.LocalTime
 import java.util.*
 
 @Entity(tableName = "tabla_citas")
 data class tabla_citas(
     @PrimaryKey(autoGenerate = true) var id:Int = 0,
     @NonNull @ColumnInfo (name = "nombre") val nombre:String = "",
-    @NonNull @ColumnInfo (name = "fecha") val fecha:Date,
-    @NonNull @ColumnInfo (name = "hora") val hora: Time,
+    @NonNull @ColumnInfo (name = "fecha") val fecha: LocalDate,
+    @NonNull @ColumnInfo (name = "hora") val hora: LocalTime,
     @NonNull @ColumnInfo (name = "personas") val personas:String = ""
 )
 
 @Dao
 interface CitaDAO {
-    @Query("SELECT * FROM tabla_citas ORDER BY nombre ASC")
+    @Query("SELECT * FROM tabla_citas ORDER BY fecha DESC")
     fun CargarCitas(): Flow<List<Citas>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
@@ -32,6 +34,9 @@ interface CitaDAO {
 
     @Query("SELECT * FROM tabla_citas WHERE id LIKE :id")
     fun BuscarPorId(id:Int) : Flow<Citas>
+
+    @Query("SELECT * FROM tabla_citas ORDER BY fecha DESC LIMIT 1")
+    fun ObtenerCitaProxima() : Flow<Citas>
 }
 @Database(entities = arrayOf(Citas::class), version = 1, exportSchema = false)
 abstract class BaseDatos: RoomDatabase(){
