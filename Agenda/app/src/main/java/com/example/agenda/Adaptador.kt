@@ -1,10 +1,15 @@
 package com.example.agenda
 
+import android.annotation.SuppressLint
+import android.content.Context
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
@@ -18,6 +23,7 @@ class Adaptador(citas:List<Citas>): RecyclerView.Adapter<Adaptador.ViewHolder>()
         var tvHora:TextView
         var tvPersonas:TextView
         var tvId:TextView
+        var cl_owo:ConstraintLayout
 
         init{
             tvNombre = v.findViewById(R.id.tv_nombre)
@@ -25,6 +31,7 @@ class Adaptador(citas:List<Citas>): RecyclerView.Adapter<Adaptador.ViewHolder>()
             tvHora = v.findViewById(R.id.tv_hora)
             tvPersonas = v.findViewById(R.id.tv_personas)
             tvId = v.findViewById(R.id.tv_id)
+            cl_owo = v.findViewById(R.id.cl_owo)
             v.findViewById<Button>(R.id.btn_gest).setOnClickListener{
                 val bundle= bundleOf("id" to this.tvId.text.toString().toInt(),
                     "nombre" to this.tvNombre.text.toString(),
@@ -46,7 +53,11 @@ class Adaptador(citas:List<Citas>): RecyclerView.Adapter<Adaptador.ViewHolder>()
         holder.tvHora.text = citas[position].hora.toString()
         holder.tvPersonas.text = citas[position].personas
         holder.tvId.text = citas[position].id.toString()
-
+        if(position % 2 == 0){
+            holder.cl_owo.setBackgroundColor(Color.parseColor("#EBBAAD"))
+        }else{
+            holder.cl_owo.setBackgroundColor(Color.parseColor("#EED2E7"))
+        }
     }
 
     override fun getItemCount(): Int {

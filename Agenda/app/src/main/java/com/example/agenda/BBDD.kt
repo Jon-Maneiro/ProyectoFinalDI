@@ -39,7 +39,7 @@ data class Citas(
 
 @Dao
 interface CitaDAO {
-    @Query("SELECT * FROM tabla_citas ORDER BY fecha DESC")
+    @Query("SELECT * FROM tabla_citas ORDER BY fecha ASC")
     fun CargarCitas(): Flow<List<Citas>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
@@ -54,7 +54,7 @@ interface CitaDAO {
     @Query("SELECT * FROM tabla_citas WHERE id LIKE :id")
     fun BuscarPorId(id:Int) : Flow<Citas>
 
-    @Query("SELECT * FROM tabla_citas ORDER BY fecha DESC LIMIT 1")
+    @Query("SELECT * FROM tabla_citas ORDER BY fecha ASC LIMIT 1")
     fun ObtenerCitaProxima() : Flow<Citas>
 }
 @Database(entities = arrayOf(Citas::class), version = 1, exportSchema = false)

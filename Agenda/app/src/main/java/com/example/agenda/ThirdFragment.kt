@@ -73,6 +73,7 @@ class ThirdFragment : Fragment() {
                     LocalTime.parse(binding.etHora.text.toString()),
                     binding.etPersonas.text.toString()))
             }
+            findNavController().navigate(R.id.action_thirdFragment_to_SecondFragment)
         }
 
         binding.btnUpdate.setOnClickListener{
@@ -92,6 +93,7 @@ class ThirdFragment : Fragment() {
                     LocalTime.parse(binding.etHora.text.toString()),
                     binding.etPersonas.text.toString(),
                     id))
+                findNavController().navigate(R.id.action_thirdFragment_to_SecondFragment)
             }
         }
 
@@ -112,6 +114,7 @@ class ThirdFragment : Fragment() {
                     LocalTime.parse(binding.etHora.text.toString()),
                     binding.etPersonas.text.toString(),
                     id))
+                findNavController().navigate(R.id.action_thirdFragment_to_SecondFragment)
             }
         }
         setHasOptionsMenu(true)
