@@ -39,12 +39,14 @@ class FirstFragment : Fragment() {
         }
 
         setHasOptionsMenu(true)
+        activity?.setTitle("Inicio")
     }
 
     override fun onPrepareOptionsMenu(menu: Menu) {
         super.onPrepareOptionsMenu(menu)
+        
         menu.findItem(R.id.action_main)?.isVisible=false
-
+        menu.findItem(R.id.action_limpiar)?.isVisible=false
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean{

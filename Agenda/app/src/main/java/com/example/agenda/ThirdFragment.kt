@@ -8,6 +8,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.agenda.databinding.FragmentThirdBinding
 import java.time.LocalDate
 import java.time.LocalTime
+import kotlin.properties.Delegates
 
 
 class ThirdFragment : Fragment() {
@@ -33,18 +34,19 @@ class ThirdFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val id:Int=arguments?.getInt("id") ?: 1
-        val nombre:String=arguments?.getString("nombre") ?: "nil"
-        val fecha:String=arguments?.getString("fecha") ?: "1997-01-01"//Hay que parsear
-        //val fechaD = LocalDate.parse(fecha)
-        val hora:String=arguments?.getString("hora") ?: "00:00:00"//Hay que parsear
-        //val horaD = LocalTime.parse(hora)
-        val personas:String=arguments?.getString("personas") ?: "nil"
+        val id:Int=arguments?.getInt("id") ?: -1
+
         if(id == -1){
             binding.btnCreate.isEnabled = true
             binding.btnDelete.isEnabled = false
             binding.btnUpdate.isEnabled = false
         }else{
+            val nombre:String=arguments?.getString("nombre") ?: "nil"
+            val fecha:String=arguments?.getString("fecha") ?: "1997-01-01"//Hay que parsear
+            //val fechaD = LocalDate.parse(fecha)
+            val hora:String=arguments?.getString("hora") ?: "00:00:00"//Hay que parsear
+            //val horaD = LocalTime.parse(hora)
+            val personas:String=arguments?.getString("personas") ?: "nil"
             binding.btnCreate.isEnabled = false
             binding.btnDelete.isEnabled = true
             binding.btnUpdate.isEnabled = true
@@ -88,7 +90,8 @@ class ThirdFragment : Fragment() {
                 (activity as MainActivity).miViewModel.Actualizar( Citas(binding.etNombre.text.toString(),
                     LocalDate.parse(binding.etFecha.text.toString()),
                     LocalTime.parse(binding.etHora.text.toString()),
-                    binding.etPersonas.text.toString()))
+                    binding.etPersonas.text.toString(),
+                    id))
             }
         }
 
@@ -107,10 +110,12 @@ class ThirdFragment : Fragment() {
                 (activity as MainActivity).miViewModel.Borrar( Citas(binding.etNombre.text.toString(),
                     LocalDate.parse(binding.etFecha.text.toString()),
                     LocalTime.parse(binding.etHora.text.toString()),
-                    binding.etPersonas.text.toString()))
+                    binding.etPersonas.text.toString(),
+                    id))
             }
         }
         setHasOptionsMenu(true)
+        activity?.setTitle("Gestión")
     }
 
     override fun onPrepareOptionsMenu(menu: Menu) {
@@ -122,6 +127,12 @@ class ThirdFragment : Fragment() {
         when(item.itemId){
             R.id.action_listado->findNavController().navigate(R.id.action_thirdFragment_to_SecondFragment)
             R.id.action_main->findNavController().navigate(R.id.action_thirdFragment_to_FirstFragment)
+            R.id.action_limpiar->{
+                binding.etNombre.setText("")
+                binding.etFecha.setText("")
+                binding.etHora.setText("")
+                binding.etPersonas.setText("")
+            }
         }
         return super.onOptionsItemSelected(item)
     }

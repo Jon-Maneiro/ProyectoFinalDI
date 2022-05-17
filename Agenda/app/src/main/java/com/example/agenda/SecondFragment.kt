@@ -37,11 +37,13 @@ class SecondFragment : Fragment() {
         reciclaje.layoutManager = LinearLayoutManager(activity)
         reciclaje.adapter = Adaptador((activity as MainActivity).citas)
         setHasOptionsMenu(true)
+        activity?.setTitle("Lista de Citas")
     }
 
     override fun onPrepareOptionsMenu(menu: Menu) {
         super.onPrepareOptionsMenu(menu)
         menu.findItem(R.id.action_listado)?.isVisible=false
+        menu.findItem(R.id.action_limpiar)?.isVisible=false
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean{

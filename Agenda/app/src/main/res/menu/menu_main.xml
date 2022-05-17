@@ -15,4 +15,8 @@
         android:id="@+id/action_listado"
         android:orderInCategory="103"
         android:title="A Listado" />
+    <item
+        android:id="@+id/action_limpiar"
+        android:orderInCategory="104"
+        android:title="Limpiar Campos" />
 </menu>

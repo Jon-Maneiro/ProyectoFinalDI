@@ -17,18 +17,20 @@ class Adaptador(citas:List<Citas>): RecyclerView.Adapter<Adaptador.ViewHolder>()
         var tvFecha:TextView
         var tvHora:TextView
         var tvPersonas:TextView
+        var tvId:TextView
 
         init{
             tvNombre = v.findViewById(R.id.tv_nombre)
             tvFecha = v.findViewById(R.id.tv_fecha)
             tvHora = v.findViewById(R.id.tv_hora)
             tvPersonas = v.findViewById(R.id.tv_personas)
+            tvId = v.findViewById(R.id.tv_id)
             v.findViewById<Button>(R.id.btn_gest).setOnClickListener{
-                val bundle= bundleOf("id" to this.layoutPosition,
-                    "nombre" to this.tvNombre,
-                    "fecha" to this.tvFecha,
-                    "hora" to this.tvHora,
-                    "personas" to this.tvPersonas)
+                val bundle= bundleOf("id" to this.tvId.text.toString().toInt(),
+                    "nombre" to this.tvNombre.text.toString(),
+                    "fecha" to this.tvFecha.text.toString(),
+                    "hora" to this.tvHora.text.toString(),
+                    "personas" to this.tvPersonas.text.toString())
                 v.findNavController().navigate(R.id.action_SecondFragment_to_thirdFragment,bundle)
             }
         }
@@ -43,6 +45,7 @@ class Adaptador(citas:List<Citas>): RecyclerView.Adapter<Adaptador.ViewHolder>()
         holder.tvFecha.text = citas[position].fecha.toString()
         holder.tvHora.text = citas[position].hora.toString()
         holder.tvPersonas.text = citas[position].personas
+        holder.tvId.text = citas[position].id.toString()
 
     }
 
