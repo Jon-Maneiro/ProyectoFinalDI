@@ -5,7 +5,7 @@ import java.time.LocalDate
 import java.time.LocalTime
 import java.util.*
 
-class Citas(nombre:String, fecha: LocalDate, hora: LocalTime, personas:String ) {
+class XCitas(nombre:String, fecha: LocalDate, hora: LocalTime, personas:String ) {
     val nombre = nombre;
     val fecha = fecha;
     val hora = hora;

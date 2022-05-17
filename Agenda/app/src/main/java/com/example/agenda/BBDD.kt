@@ -9,13 +9,32 @@ import java.time.LocalDate
 import java.time.LocalTime
 import java.util.*
 
+class Converters{
+    @TypeConverter
+    fun fromStringLocalDate(value: String?) : LocalDate?{
+        return value?.let {LocalDate.parse(it)}
+    }
+    @TypeConverter
+    fun localDateToString(value: LocalDate?): String?{
+        return value.toString()
+    }
+    @TypeConverter
+    fun fromStringLocalTime(value: String?) : LocalTime?{
+        return value?.let{LocalTime.parse(it)}
+    }
+    @TypeConverter
+    fun localTimeToString(value: LocalTime?): String?{
+        return value.toString()
+    }
+}
+
 @Entity(tableName = "tabla_citas")
-data class tabla_citas(
-    @PrimaryKey(autoGenerate = true) var id:Int = 0,
+data class Citas(
     @NonNull @ColumnInfo (name = "nombre") val nombre:String = "",
-    @NonNull @ColumnInfo (name = "fecha") val fecha: LocalDate,
-    @NonNull @ColumnInfo (name = "hora") val hora: LocalTime,
-    @NonNull @ColumnInfo (name = "personas") val personas:String = ""
+    @NonNull @ColumnInfo (name = "fecha") val fecha: LocalDate?,
+    @NonNull @ColumnInfo (name = "hora") val hora: LocalTime?,
+    @NonNull @ColumnInfo (name = "personas") val personas:String = "",
+    @PrimaryKey(autoGenerate = true) var id:Int = 0
 )
 
 @Dao
@@ -39,6 +58,7 @@ interface CitaDAO {
     fun ObtenerCitaProxima() : Flow<Citas>
 }
 @Database(entities = arrayOf(Citas::class), version = 1, exportSchema = false)
+@TypeConverters(Converters::class)
 abstract class BaseDatos: RoomDatabase(){
 
     abstract fun miDao(): CitaDAO
